@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 function LeadForm() {
   const [formData, setFormData] = useState({
-    propertyAddress: "",
-    ownerName: "",
-    phoneNumber: "",
-    notes: "",
+    name: '',
+    phone: '',
+    address: '',
+    notes: '',
   });
 
   const handleChange = (e) => {
@@ -14,43 +14,15 @@ function LeadForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Lead submitted: " + JSON.stringify(formData, null, 2));
-    // Here you could send the data to a backend or Google Sheet
-    setFormData({ propertyAddress: "", ownerName: "", phoneNumber: "", notes: "" });
+    alert('Lead submitted: ' + JSON.stringify(formData, null, 2));
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: "600px", margin: "2rem auto" }}>
-      <input
-        name="propertyAddress"
-        placeholder="Property Address"
-        value={formData.propertyAddress}
-        onChange={handleChange}
-        required
-        style={{ display: "block", width: "100%", marginBottom: "1rem" }}
-      />
-      <input
-        name="ownerName"
-        placeholder="Owner Name"
-        value={formData.ownerName}
-        onChange={handleChange}
-        style={{ display: "block", width: "100%", marginBottom: "1rem" }}
-      />
-      <input
-        name="phoneNumber"
-        placeholder="Phone Number"
-        value={formData.phoneNumber}
-        onChange={handleChange}
-        style={{ display: "block", width: "100%", marginBottom: "1rem" }}
-      />
-      <textarea
-        name="notes"
-        placeholder="Notes"
-        value={formData.notes}
-        onChange={handleChange}
-        rows="4"
-        style={{ display: "block", width: "100%", marginBottom: "1rem" }}
-      />
+    <form onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: '2rem auto', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <input type="text" name="name" placeholder="Name" onChange={handleChange} required />
+      <input type="text" name="phone" placeholder="Phone" onChange={handleChange} required />
+      <input type="text" name="address" placeholder="Address" onChange={handleChange} required />
+      <textarea name="notes" placeholder="Notes" onChange={handleChange} />
       <button type="submit">Submit Lead</button>
     </form>
   );
