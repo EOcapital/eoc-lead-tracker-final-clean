@@ -1,5 +1,5 @@
 import React from 'react';
-import LeadForm from './leadform.jsx';
+import LeadForm from './LeadForm.jsx';
 
 function App() {
   return (
